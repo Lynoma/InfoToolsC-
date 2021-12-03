@@ -22,6 +22,15 @@ namespace ProjetInfoToolsCRM
             set { _idRDV = value; }
         }
 
+        private DateTime _dateRDV;
+
+        public DateTime dateRDV
+        {
+            get { return _dateRDV; }
+            set { _dateRDV = value; }
+        }
+
+
         private Client _myClient;   
 
         public Client MyClient
@@ -32,7 +41,7 @@ namespace ProjetInfoToolsCRM
 
         private Employe _myEmploye;
 
-        public Employe MyProduit
+        public Employe MyEmploye
         {
             get { return _myEmploye; }
             set { _myEmploye = value; }

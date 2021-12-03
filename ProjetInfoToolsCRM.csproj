@@ -103,11 +103,13 @@
     <Compile Include="BDD\bdd.cs" />
     <Compile Include="BDD\bddEmploye.cs" />
     <Compile Include="BDD\bddClient.cs" />
+    <Compile Include="BDD\bddRDV.cs" />
     <Compile Include="BDD\bddFacture.cs" />
     <Compile Include="BDD\bddProduit.cs" />
     <Compile Include="BDD\bddProspect.cs" />
     <Compile Include="Modèles\Client.cs" />
     <Compile Include="Modèles\Employe.cs" />
+    <Compile Include="Modèles\RDV.cs" />
     <Compile Include="Modèles\Produit.cs" />
     <Compile Include="Modèles\Facture.cs" />
     <Compile Include="Modèles\Prospect.cs" />
@@ -116,6 +118,9 @@
     </Compile>
     <Compile Include="Vues\ViewClient.xaml.cs">
       <DependentUpon>ViewClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ViewRDV.xaml.cs">
+      <DependentUpon>ViewRDV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vues\ViewFacture.xaml.cs">
       <DependentUpon>ViewFacture.xaml</DependentUpon>
@@ -151,6 +156,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Vues\ViewClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\ViewRDV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

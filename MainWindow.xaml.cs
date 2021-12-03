@@ -62,6 +62,9 @@ namespace ProjetInfoToolsCRM
 
         private void BtnRDV_Click(object sender, RoutedEventArgs e)
         {
+            ViewRDV viewRDV = new ViewRDV();
+            Main.Content = viewRDV;
+
             ResetColor();
             BtnRDV.Background = selectedButton;
         }
@@ -98,9 +101,19 @@ namespace ProjetInfoToolsCRM
 
         private void BtnConnexion_Click(object sender, RoutedEventArgs e)
         {
-            Connexion.Visibility = Visibility.Hidden;
-            Main.Visibility = Visibility.Visible;
-            NavigationBar.Visibility = Visibility.Visible;
+            if(!String.IsNullOrEmpty(TxtEmail.Text) && !String.IsNullOrEmpty(TxtMDP.Text))
+            {
+                foreach (Employe emp in viewEmploye.Employes)
+                {
+                    if(emp.MailEmp == TxtEmail.Text)
+                        if(emp.MdpEmp == TxtMDP.Text)
+                        {
+                            Connexion.Visibility = Visibility.Hidden;
+                            Main.Visibility = Visibility.Visible;
+                            NavigationBar.Visibility = Visibility.Visible;
+                        }
+                }
+            }
         }
 
         private void MinimizeApp_Click(object sender, RoutedEventArgs e)

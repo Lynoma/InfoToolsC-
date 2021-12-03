@@ -108,12 +108,16 @@
         <!-- Frame -->
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.Row="1"  Background="#2D3343"/>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Name="Connexion" Background="#2D3343">
-            <Label Foreground="White" Content="Email"/>
-            <TextBox x:Name="TxtEmail"/>
-            <Label Foreground="White" Content="Mot de Passe"/>
-            <TextBox x:Name="TxtMDP"/>
-            <Button x:Name="BtnConnexion"  Content="Valider" Foreground="White" Click="BtnConnexion_Click"/>
-        </StackPanel>
+        <Grid Grid.Column="0" Grid.Row="1" Name="Connexion" Background="#2D3343">
+            <StackPanel Margin="10" HorizontalAlignment="Center" Width="350">
+                <Label Content="InfoTools" Foreground="White" FontSize="40" HorizontalAlignment="Center"/>
+                <Label Foreground="White" Content="Email"/>
+                <TextBox x:Name="TxtEmail"/>
+                <Label Foreground="White" Content="Mot de Passe"/>
+                <TextBox x:Name="TxtMDP"/>
+                <Button x:Name="BtnConnexion" Margin="0,20,0,0" Content="Valider" Click="BtnConnexion_Click"/>
+            </StackPanel>
+        </Grid>
+
     </Grid>
 </Window>

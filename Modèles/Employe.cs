@@ -68,5 +68,9 @@ namespace ProjetInfoToolsCRM
             set { _mdpEmp = value; }
         }
 
+        public override string ToString()
+        {
+            return _nomEmp + " " + _prenomEmp;
+        }
     }
 }
