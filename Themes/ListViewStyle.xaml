@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="myHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Background" Value="#171820"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <DataTemplate x:Key="myCellTemplateID">
+        <DockPanel>
+            <TextBlock Foreground="DarkBlue" HorizontalAlignment="Center">
+                <TextBlock.Text>
+                    <Binding Path="ID"/>
+                </TextBlock.Text>
+            </TextBlock>
+        </DockPanel>
+    </DataTemplate>
+</ResourceDictionary>

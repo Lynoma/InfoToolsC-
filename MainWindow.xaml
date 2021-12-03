@@ -1,0 +1,119 @@
+﻿<Window x:Class="ProjetInfoToolsCRM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetInfoToolsCRM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MouseDown="Window_MouseDown"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="550"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Background="#2D3343"/>
+        <Grid Grid.Column="1" Background="#232832">
+            <Grid Height="60">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Boutons de fenêtre -->
+                <Button BorderThickness="0" x:Name="MinimizeApp" Click="MinimizeApp_Click" Grid.Column="0" Style="{StaticResource GButton}"/>
+                <Button BorderThickness="0" x:Name="ResizeApp" Click="ResizeApp_Click" Grid.Column="1" Style="{StaticResource YButton}"/>
+                <Button BorderThickness="0" x:Name="CloseApp" Click="CloseApp_Click" Grid.Column="2" Style="{StaticResource RButton}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" Background="#232832">
+            <StackPanel Name="NavigationBar">
+                <!-- Boutons de Navigation -->
+                <Button Margin="0,30,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
+                        x:Name="BtnFactures"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnFactures_Click"
+                        Style="{StaticResource MenuButtonTheme}">Factures</Button>
+                <Button Margin="0,0,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
+                        x:Name="BtnClients"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnClients_Click"
+                        Style="{StaticResource MenuButtonTheme}">Clients</Button>
+                <Button Margin="0,0,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
+                        x:Name="BtnProspects"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnProspects_Click"
+                        Style="{StaticResource MenuButtonTheme}">Prospects</Button>
+                <Button Margin="0,0,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
+                        x:Name="BtnEmployes"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnEmployes_Click"
+                        Style="{StaticResource MenuButtonTheme}">Employés</Button>
+                <Button Margin="0,0,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
+                        x:Name="BtnRDV"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnRDV_Click"
+                        Style="{StaticResource MenuButtonTheme}">RDV</Button>
+                <Button Margin="0,0,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
+                        x:Name="BtnProduits"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnProduits_Click"
+                        Style="{StaticResource MenuButtonTheme}">Produits</Button>
+                <Button Margin="0,0,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
+                        x:Name="BtnGraphiques"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnGraphiques_Click"
+                        Style="{StaticResource MenuButtonTheme}">Graphiques</Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Frame -->
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.Row="1"  Background="#2D3343"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Name="Connexion" Background="#2D3343">
+            <Label Foreground="White" Content="Email"/>
+            <TextBox x:Name="TxtEmail"/>
+            <Label Foreground="White" Content="Mot de Passe"/>
+            <TextBox x:Name="TxtMDP"/>
+            <Button x:Name="BtnConnexion"  Content="Valider" Foreground="White" Click="BtnConnexion_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
