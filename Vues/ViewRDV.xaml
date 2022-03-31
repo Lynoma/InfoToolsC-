@@ -5,22 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjetInfoToolsCRM"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             TextElement.Foreground="White"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid Margin="10,0,10,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
             <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
 
-        <ListView Background="#2D3343" ItemsSource="{Binding RDVs}" Grid.Row="0" SelectionChanged="RDV_selectionChanged" Name="ListViewRDVs" BorderThickness="0,0,0,1" BorderBrush="#37445F" >
+        <ListView Background="#2D3343" ItemsSource="{Binding RDVs}" Grid.Row="0" SelectionChanged="RDV_selectionChanged" Name="ListViewRDVs" BorderThickness="1" BorderBrush="#37445F" >
             <ListView.View>
                 <GridView x:Name="ClientsGrid" ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}" >
-                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding IdRDV}" Width="80"/>
-                    <GridViewColumn Header="Date RDV" DisplayMemberBinding="{Binding dateRDV}" Width="80"/>
-                    <GridViewColumn Header="Nom Client" DisplayMemberBinding="{Binding MyClient.Nom}" Width="80"/>
-                    <GridViewColumn Header="Prenom Client" DisplayMemberBinding="{Binding MyClient.Prenom}" Width="80"/>
-                    <GridViewColumn Header="Nom Employé" DisplayMemberBinding="{Binding MyEmploye.NomEmp}" Width="80" />
-                    <GridViewColumn Header="Prenom Employé" DisplayMemberBinding="{Binding MyEmploye.PrenomEmp}" Width="80" />
+                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding IdRDV}" Width="120"/>
+                    <GridViewColumn Header="Date RDV" DisplayMemberBinding="{Binding dateRDV}" Width="160"/>
+                    <GridViewColumn Header="Nom Client" DisplayMemberBinding="{Binding MyClient.Nom}" Width="130"/>
+                    <GridViewColumn Header="Prenom Client" DisplayMemberBinding="{Binding MyClient.Prenom}" Width="130"/>
+                    <GridViewColumn Header="Nom Commercial" DisplayMemberBinding="{Binding MyCommercial.NomCom}" Width="120" />
+                    <GridViewColumn Header="Prenom Commercial" DisplayMemberBinding="{Binding MyCommercial.PrenomCom}" Width="120" />
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
@@ -85,7 +91,6 @@
                 <ComboBox x:Name="CboC"/>
                 <Label Foreground="White">Employé</Label>
                 <ComboBox x:Name="CboE"/>
-                <DatePicker></DatePicker>
             </StackPanel>
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
@@ -94,7 +99,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="0" Name="BtnRDVAdd" Click="BtnRDVAdd_Click">Ajouter</Button>
+                <Button Grid.Row="0" Name="BtnRDVAdd" Click="BtnRDVAdd_Click" >Ajouter</Button>
                 <Button Grid.Row="1" Name="BtnRDVUpdate" Click="BtnRDVUpdate_Click">Modifier</Button>
                 <Button Grid.Row="2" Name="BtnRDVDelete" Click="BtnRDVDelete_Click">Supprimer</Button>
             </Grid>

@@ -25,13 +25,13 @@ namespace ProjetInfoToolsCRM
     {
         static bddRDV baseRDV = new bddRDV();
         static bddClient baseClient = new bddClient();
-        static bddEmploye baseEmploye = new bddEmploye();
+        static bddCommercial baseEmploye = new bddCommercial();
         public ViewRDV()
         {
             InitializeComponent();
             this.DataContext = this;
             CboC.ItemsSource = baseClient.SelectClients();
-            CboE.ItemsSource = baseEmploye.SelectEmployes();
+            CboE.ItemsSource = baseEmploye.SelectCommercials();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -65,7 +65,7 @@ namespace ProjetInfoToolsCRM
                 TxtID.Text = Convert.ToString(RDVSelected.IdRDV);
                 TxtDate.Text = Convert.ToString(RDVSelected.dateRDV);
                 CboC.Text = RDVSelected.MyClient.ToString();
-                CboE.Text = RDVSelected.MyEmploye.ToString();
+                CboE.Text = RDVSelected.MyCommercial.ToString();
             }
         }
 
@@ -75,7 +75,7 @@ namespace ProjetInfoToolsCRM
             {
                 dateRDV = Convert.ToDateTime(TxtDate.Text),
                 MyClient = (Client)CboC.SelectedItem,
-                MyEmploye = (Employe)CboE.SelectedItem
+                MyCommercial = (Commercial)CboE.SelectedItem
             };
             baseRDV.AddRDV(addRDV);
             RDVs = baseRDV.SelectRDVs();
@@ -91,7 +91,7 @@ namespace ProjetInfoToolsCRM
                     IdRDV = Convert.ToInt32(TxtID.Text),
                     dateRDV = Convert.ToDateTime(TxtDate.Text),
                     MyClient = (Client)CboC.SelectedItem,
-                    MyEmploye = (Employe)CboE.SelectedItem
+                    MyCommercial = (Commercial)CboE.SelectedItem
                 };
 
                 baseRDV.UpdateRDV(updatedRDV);

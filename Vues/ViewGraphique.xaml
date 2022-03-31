@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="ProjetInfoToolsCRM.ViewGraphique"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjetInfoToolsCRM"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             TextElement.Foreground="White"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid Margin="10,0,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Center" Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,0,10,0" Background="#232832">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="{Binding NbClients}" x:Name="firstProgress" Height="100" Width="100" Foreground="Green" Grid.Row="0" Maximum="{Binding NbClientsProspects}"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ElementName=firstProgress, Path=Value}" Grid.Row="0" FontSize="20"/>
+                <TextBlock Foreground="White" Text="Prospects devenus clients" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" TextWrapping="Wrap" Margin="5,0,5,0"/>
+            </Grid>
+            <Grid Grid.Column="1" Background="#232832">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="{Binding CA}" x:Name="secondProgress" Height="100" Width="100" Foreground="Red" Maximum="5000"/>
+
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ElementName=secondProgress, Path=Value}" FontSize="20"/>
+                <TextBlock Foreground="White" Text="Euros de Chiffre d'affaires" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" TextWrapping="Wrap" Margin="5,0,5,0" />
+            </Grid>
+            <Grid Margin="10,0,0,0" Grid.Column="2" Background="#232832">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="{Binding RatioRDV}" x:Name="thirdProgress" Height="100" Width="100" Foreground="Yellow" Maximum="{Binding NbClients}"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ElementName=thirdProgress, Path=Value}" FontSize="20"/>
+                <TextBlock Foreground="White" Text="Clients ayant pris rendez-vous" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" TextWrapping="Wrap" TextAlignment="Center" Margin="5,0,5,0"/>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Column="0">
+                <Label FontSize="30" Foreground="White" Content="Produits les plus achetés" HorizontalAlignment="Left"/>
+                <StackPanel>
+                    <Label Foreground="White" Content="{Binding Prod1.NomProd}"/>
+                    <ProgressBar Style="{StaticResource MaterialDesignLinearProgressBar}" Height="10" Value="{Binding Prod1.NbProd}" Maximum="{Binding MaxProd}"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Foreground="White" Content="{Binding Prod2.NomProd}"/>
+                    <ProgressBar Style="{StaticResource MaterialDesignLinearProgressBar}" Height="10" Value="{Binding Prod2.NbProd}" Maximum="{Binding MaxProd}"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Foreground="White" Content="{Binding Prod3.NomProd}"/>
+                    <ProgressBar Style="{StaticResource MaterialDesignLinearProgressBar}" Height="10" Value="{Binding Prod3.NbProd}" Maximum="{Binding MaxProd}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" >
+                <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2,2,2,10" Stroke="DarkGray" />
+            </StackPanel>
+
+            <Grid Grid.Column="1" Margin="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <TextBlock Text="{Binding NbEmp}" FontSize="35" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" Text="Employés" FontSize="20"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="{Binding CA}" FontSize="35" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" Text="Euros de CA" FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="{Binding NbRDV}" FontSize="35" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" Text="RDV totaux" FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                    <TextBlock Text="{Binding NbProd}" FontSize="35" Foreground="White" HorizontalAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" Text="Produits" FontSize="20"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

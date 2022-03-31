@@ -31,7 +31,6 @@ namespace ProjetInfoToolsCRM
             InitializeComponent();
             this.DataContext = this;
             CboC.ItemsSource = baseClient.SelectClients();
-            CboP.ItemsSource = baseProduit.SelectProduits();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -64,7 +63,6 @@ namespace ProjetInfoToolsCRM
             {
                 TxtID.Text = Convert.ToString(FactureSelected.IdFacture);
                 CboC.Text = FactureSelected.MyClient.ToString();
-                CboP.Text = FactureSelected.MyProduit.ToString();
             }
         }
 
@@ -73,7 +71,6 @@ namespace ProjetInfoToolsCRM
             Facture addFacture = new Facture
             {
                 MyClient = (Client)CboC.SelectedItem,
-                MyProduit = (Produit)CboP.SelectedItem
             };
             baseFacture.AddFacture(addFacture);
             Factures = baseFacture.SelectFactures();
@@ -88,7 +85,6 @@ namespace ProjetInfoToolsCRM
                 {
                     IdFacture = Convert.ToInt32(TxtID.Text),
                     MyClient = (Client)CboC.SelectedItem,
-                    MyProduit = (Produit)CboP.SelectedItem
                 };
 
                 baseFacture.UpdateFacture(updatedFacture);

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ProjetInfoToolsCRM.ViewClient"
+﻿<UserControl x:Class="ProjetInfoToolsCRM.ViewCommercial"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,16 +17,16 @@
             <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
 
-        <ListView Background="#2D3343" ItemsSource="{Binding Clients}" Grid.Row="0" SelectionChanged="Client_selectionChanged" Name="ListViewClients" BorderThickness="0,0,0,1" BorderBrush="#37445F" >
+        <ListView Background="#2D3343" ItemsSource="{Binding Commercials}" Grid.Row="0" SelectionChanged="Commercial_selectionChanged" Name="ListViewCommercials" BorderThickness="0,0,0,1" BorderBrush="#37445F" >
             <ListView.View>
-                <GridView x:Name="ClientsGrid" ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}" >
-                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding ID}" Width="80"/>
-                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="80"/>
-                    <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding Prenom}" Width="80" />
-                    <GridViewColumn Header="Adresse" DisplayMemberBinding="{Binding Adresse}" Width="160" />
-                    <GridViewColumn Header="Telephone" DisplayMemberBinding="{Binding Telephone}" Width="80" />
-                    <GridViewColumn Header="Mail" DisplayMemberBinding="{Binding Mail}" Width="160" />
-                    <GridViewColumn Header="Mdp" DisplayMemberBinding="{Binding Mdp}" Width="80" />
+                <GridView x:Name="CommercialsGrid" ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}" >
+                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding IdCom}" Width="80"/>
+                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding NomCom}" Width="80"/>
+                    <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding PrenomCom}" Width="80" />
+                    <GridViewColumn Header="Adresse" DisplayMemberBinding="{Binding AdresseCom}" Width="160" />
+                    <GridViewColumn Header="Telephone" DisplayMemberBinding="{Binding TelephoneCom}" Width="80" />
+                    <GridViewColumn Header="Mail" DisplayMemberBinding="{Binding MailCom}" Width="160" />
+                    <GridViewColumn Header="Mdp" DisplayMemberBinding="{Binding MdpCom}" Width="80" />
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
@@ -105,9 +105,9 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="0" Name="BtnClientAdd" Click="BtnClientAdd_Click">Ajouter</Button>
-                <Button Grid.Row="1" Name="BtnClientUpdate" Click="BtnClientUpdate_Click">Modifier</Button>
-                <Button Grid.Row="2" Name="BtnClientDelete" Click="BtnClientDelete_Click">Supprimer</Button>
+                <Button Grid.Row="0" Name="BtnCommercialAdd" Click="BtnCommercialAdd_Click">Ajouter</Button>
+                <Button Grid.Row="1" Name="BtnCommercialUpdate" Click="BtnCommercialUpdate_Click">Modifier</Button>
+                <Button Grid.Row="2" Name="BtnCommercialDelete" Click="BtnCommercialDelete_Click">Supprimer</Button>
             </Grid>
         </Grid>
 
