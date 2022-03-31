@@ -8,13 +8,20 @@
         Title="MainWindow" Height="600" Width="1000"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent"
+        Background="#2D3343"
         MouseDown="Window_MouseDown"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="White"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -51,6 +58,15 @@
                 <Button Margin="0,0,0,10" 
                         Background="Transparent" 
                         Foreground="White" 
+                        x:Name="BtnProspects"
+                        FontSize="25"
+                        Height="60"
+                        BorderThickness="0"
+                        Click="BtnLigneFact_Click"
+                        Style="{StaticResource MenuButtonTheme}">LigneFact</Button>
+                <Button Margin="0,0,0,10" 
+                        Background="Transparent" 
+                        Foreground="White" 
                         x:Name="BtnClients"
                         FontSize="25"
                         Height="60"
@@ -60,21 +76,12 @@
                 <Button Margin="0,0,0,10" 
                         Background="Transparent" 
                         Foreground="White" 
-                        x:Name="BtnProspects"
-                        FontSize="25"
-                        Height="60"
-                        BorderThickness="0"
-                        Click="BtnProspects_Click"
-                        Style="{StaticResource MenuButtonTheme}">Prospects</Button>
-                <Button Margin="0,0,0,10" 
-                        Background="Transparent" 
-                        Foreground="White" 
                         x:Name="BtnEmployes"
                         FontSize="25"
                         Height="60"
                         BorderThickness="0"
-                        Click="BtnEmployes_Click"
-                        Style="{StaticResource MenuButtonTheme}">Employés</Button>
+                        Click="BtnCommerciaux_Click"
+                        Style="{StaticResource MenuButtonTheme}">Commerciaux</Button>
                 <Button Margin="0,0,0,10" 
                         Background="Transparent" 
                         Foreground="White" 

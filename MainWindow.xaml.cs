@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetInfoToolsCRM.Vues;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -23,9 +24,8 @@ namespace ProjetInfoToolsCRM
     public partial class MainWindow :  Window
     {
         ViewClient viewClient = new ViewClient();
-        ViewProspect viewProspect = new ViewProspect();
         ViewProduit viewProduit = new ViewProduit();
-        ViewEmploye viewEmploye = new ViewEmploye();
+        ViewCommercial viewCommercial = new ViewCommercial();
 
         Brush selectedButton = new SolidColorBrush(Color.FromRgb(45, 51, 67));
         SolidColorBrush baseColor = new SolidColorBrush(Color.FromRgb(35,40,50));
@@ -52,9 +52,10 @@ namespace ProjetInfoToolsCRM
             BtnFactures.Background = selectedButton;
         }
 
-        private void BtnProspects_Click(object sender, RoutedEventArgs e)
+        private void BtnLigneFact_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = viewProspect;
+            ViewLigneFacture viewLigneFacture = new ViewLigneFacture();
+            Main.Content = viewLigneFacture;
 
             ResetColor();
             BtnProspects.Background = selectedButton;
@@ -77,9 +78,9 @@ namespace ProjetInfoToolsCRM
             BtnClients.Background = selectedButton;
         }
 
-        private void BtnEmployes_Click(object sender, RoutedEventArgs e)
+        private void BtnCommerciaux_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = viewEmploye;
+            Main.Content = viewCommercial;
 
             ResetColor();
             BtnEmployes.Background = selectedButton;
@@ -95,6 +96,8 @@ namespace ProjetInfoToolsCRM
 
         private void BtnGraphiques_Click(object sender, RoutedEventArgs e)
         {
+            ViewGraphique viewGraphique = new ViewGraphique();
+            Main.Content = viewGraphique;
             ResetColor();
             BtnGraphiques.Background = selectedButton;
         }
@@ -103,10 +106,10 @@ namespace ProjetInfoToolsCRM
         {
             if(!String.IsNullOrEmpty(TxtEmail.Text) && !String.IsNullOrEmpty(TxtMDP.Text))
             {
-                foreach (Employe emp in viewEmploye.Employes)
+                foreach (Commercial com in viewCommercial.Commercials)
                 {
-                    if(emp.MailEmp == TxtEmail.Text)
-                        if(emp.MdpEmp == TxtMDP.Text)
+                    if(com.MailCom == TxtEmail.Text)
+                        if(com.MdpCom == TxtMDP.Text)
                         {
                             Connexion.Visibility = Visibility.Hidden;
                             Main.Visibility = Visibility.Visible;
