@@ -8,7 +8,7 @@ using ProjetInfoToolsCRM;
 
 namespace ProjetInfoToolsCRM
 {
-    public class bdd
+    public abstract class bdd
     {
        protected static MySqlConnection connection;
        protected static string server;

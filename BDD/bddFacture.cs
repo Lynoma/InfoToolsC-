@@ -17,7 +17,7 @@ namespace ProjetInfoToolsCRM
         }
         public ObservableCollection<Facture> SelectFactures()
         {
-            string query = "SELECT idFact,F.idC, F.idProd, nomProd, nomC, prenomC FROM Clients C INNER JOIN Facture F ON C.idC = F.idC INNER JOIN Produit P ON F.idProd = P.idProd";
+            string query = "SELECT idFact,F.idC, nomC, prenomC FROM Clients C INNER JOIN Facture F ON C.idC = F.idC";
             ObservableCollection<Facture> DBFactures = new ObservableCollection<Facture>();
 
             if (bdd.OpenConnection() == true)
@@ -29,8 +29,7 @@ namespace ProjetInfoToolsCRM
                     Facture leFacture = new Facture
                     {
                         IdFacture = Convert.ToInt32(dataReader["idFact"]),
-                        MyClient = new Client { ID = Convert.ToInt32(dataReader["idC"]), Nom = Convert.ToString(dataReader["nomC"]), Prenom = Convert.ToString(dataReader["prenomC"]) },
-                        MyProduit = new Produit { IdProd = Convert.ToInt32(dataReader["idProd"]), NomProd = Convert.ToString(dataReader["nomProd"])}
+                        MyClient = new Client { ID = Convert.ToInt32(dataReader["idC"]), Nom = Convert.ToString(dataReader["nomC"]), Prenom = Convert.ToString(dataReader["prenomC"]) }
                     };
                     DBFactures.Add(leFacture);
                 }
@@ -41,7 +40,7 @@ namespace ProjetInfoToolsCRM
 
         public void AddFacture(Facture newFacture)
         {
-            string query = "INSERT INTO Facture (idFact, idC, idProd) VALUES(" + newFacture.IdFacture + "," + newFacture.MyClient.ID + "," + newFacture.MyProduit.IdProd + ")";
+            string query = "INSERT INTO Facture (idFact, idC) VALUES(" + newFacture.IdFacture + "," + newFacture.MyClient.ID + ")";
             Console.WriteLine(query);
 
             //open connection
@@ -60,7 +59,7 @@ namespace ProjetInfoToolsCRM
 
         public void UpdateFacture(Facture updateFacture)
         {
-            string query = "UPDATE Facture SET idC=" + updateFacture.MyClient.ID + ", idProd=" + updateFacture.MyProduit.IdProd + " WHERE idFact=" + updateFacture.IdFacture;
+            string query = "UPDATE Facture SET idC=" + updateFacture.MyClient.ID + " WHERE idFact=" + updateFacture.IdFacture;
             Console.WriteLine(query);
             //Open connection
             if (bdd.OpenConnection() == true)

@@ -17,7 +17,7 @@ namespace ProjetInfoToolsCRM
         }
         public ObservableCollection<RDV> SelectRDVs()
         {
-            string query = "SELECT idRDV, dateRDV, R.idC, R.idEmp, nomEmp, prenomEmp, nomC, prenomC FROM Clients C INNER JOIN rendezvous R ON C.idC = R.idC INNER JOIN Employe E ON R.idEmp = E.idEmp";
+            string query = "SELECT idRDV, dateRDV, R.idC, R.idCom, nomCom, prenomCom, nomC, prenomC FROM Clients C INNER JOIN rendezvous R ON C.idC = R.idC INNER JOIN Commercial E ON R.idCom = E.idCom";
             ObservableCollection<RDV> DBRDVs = new ObservableCollection<RDV>();
 
             if (bdd.OpenConnection() == true)
@@ -31,7 +31,7 @@ namespace ProjetInfoToolsCRM
                         IdRDV = Convert.ToInt32(dataReader["idRDV"]),
                         dateRDV = Convert.ToDateTime(dataReader["dateRDV"]),
                         MyClient = new Client { ID = Convert.ToInt32(dataReader["idC"]), Nom = Convert.ToString(dataReader["nomC"]), Prenom = Convert.ToString(dataReader["prenomC"]) },
-                        MyEmploye = new Employe { IdEmp = Convert.ToInt32(dataReader["idEmp"]), NomEmp = Convert.ToString(dataReader["nomEmp"]), PrenomEmp = Convert.ToString(dataReader["prenomEmp"])}
+                        MyCommercial = new Commercial { IdCom = Convert.ToInt32(dataReader["idCom"]), NomCom = Convert.ToString(dataReader["nomCom"]), PrenomCom = Convert.ToString(dataReader["prenomCom"])}
                     };
                     DBRDVs.Add(leRDV);
                 }
@@ -42,7 +42,7 @@ namespace ProjetInfoToolsCRM
 
         public void AddRDV(RDV newRDV)
         {
-            string query = "INSERT INTO rendezvous (dateRdv, idC, idEmp) VALUES(STR_TO_DATE('" + newRDV.dateRDV + "','%d/%m/%Y %H:%i:%s')," + newRDV.MyClient.ID + "," + newRDV.MyEmploye.IdEmp + ")";
+            string query = "INSERT INTO rendezvous (dateRdv, idC, idCom) VALUES(STR_TO_DATE('" + newRDV.dateRDV + "','%d/%m/%Y %H:%i:%s')," + newRDV.MyClient.ID + "," + newRDV.MyCommercial.IdCom + ")";
             Console.WriteLine(query);
 
             //open connection
@@ -61,7 +61,7 @@ namespace ProjetInfoToolsCRM
 
         public void UpdateRDV(RDV updateRDV)
         {
-            string query = "UPDATE rendezvous SET dateRDV =STR_TO_DATE('" + updateRDV.dateRDV + "','%d/%m/%Y %H:%i:%s'), idC=" + updateRDV.MyClient.ID + ", idEmp=" + updateRDV.MyEmploye.IdEmp + " WHERE idRDV=" + updateRDV.IdRDV;
+            string query = "UPDATE rendezvous SET dateRDV =STR_TO_DATE('" + updateRDV.dateRDV + "','%d/%m/%Y %H:%i:%s'), idC=" + updateRDV.MyClient.ID + ", idCom=" + updateRDV.MyCommercial.IdCom + " WHERE idRDV=" + updateRDV.IdRDV;
             Console.WriteLine(query);
             //Open connection
             if (bdd.OpenConnection() == true)
