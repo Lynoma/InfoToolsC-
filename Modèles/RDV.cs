@@ -39,12 +39,12 @@ namespace ProjetInfoToolsCRM
             set { _myClient = value; }
         }
 
-        private Employe _myEmploye;
+        private Commercial _myCommercial;
 
-        public Employe MyEmploye
+        public Commercial MyCommercial
         {
-            get { return _myEmploye; }
-            set { _myEmploye = value; }
+            get { return _myCommercial; }
+            set { _myCommercial = value; }
         }
 
 

@@ -38,7 +38,10 @@ namespace ProjetInfoToolsCRM
             set { _myProduit = value; }
         }
 
-
+        public override string ToString()
+        {
+            return Convert.ToString(this.IdFacture);
+        }
     }
 
 }
